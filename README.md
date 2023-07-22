@@ -3,9 +3,33 @@ Courier - inventario de cajas y paquetes
 
 #---------#---------#---------#---------#---------#---------#---------#---------#
 
+El proyecto consiste en crear un API para insertar registros en una base de datos estructurada (MariaDB).
+El API tendra los metodos necesarios para realizar un CRUD.
+
+#---------#---------#---------#---------#---------#---------#---------#---------#
+
 Database - MariaDB 10.11.2-MariaDB
 Driver - MariaDB Connector/J 3.0.7
 Free Universal Database Tool - DBeaver Community - Version 23.1.2.202307091549
+
+#---------#---------#---------#---------#---------#---------#---------#---------#
+
+use mysql ;
+select host, user, password, plugin, authentication_string 
+  from mysql.user where user in ('kohana','root') ;
+
+flush privileges;
+create user 'kohana'@'localhost' identified by 'asteriscos';
+create user 'kohana'@'%' identified by 'asteriscos';
+flush privileges;
+SET PASSWORD FOR 'kohana'@'localhost' = PASSWORD('asteriscos');
+SET PASSWORD FOR 'kohana'@'%' = PASSWORD('asteriscos  ');
+flush privileges;
+grant all privileges on *.* to 'kohana'@'localhost';
+grant all privileges on *.* to 'kohana'@'%';
+flush privileges;
+commit ;
+exit;
 
 #---------#---------#---------#---------#---------#---------#---------#---------#
 
