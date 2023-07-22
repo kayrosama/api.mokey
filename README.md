@@ -8,7 +8,7 @@ El API tendra los metodos necesarios para realizar un CRUD.
 
 #---------#---------#---------#---------#---------#---------#---------#---------#
 
-Database - MariaDB 10.11.2-MariaDB
+Database - MariaDB 10.11.2-MariaDB\n
 Driver - MariaDB Connector/J 3.0.7
 Free Universal Database Tool - DBeaver Community - Version 23.1.2.202307091549
 
