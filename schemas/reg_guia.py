@@ -30,7 +30,7 @@ class RegGuia(BaseModel):
     dteldos: Optional[int] = Field(default=None)
     ddiruno: Optional[str] = Field(default=None)
     ddirdos: Optional[str] = Field(default=None)
-    destino: Optional[str] = Field(default=None)
+    destado: Optional[str] = Field(default=None)
     dciudad: Optional[str] = Field(default=None)
     dzipcode: Optional[int] = Field(default=None)
     idgrupo: Optional[int] = Field(default=None)

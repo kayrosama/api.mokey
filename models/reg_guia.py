@@ -32,7 +32,7 @@ class RegGuia(Base):
     dteldos = Column(Integer)
     ddiruno = Column(String)
     ddirdos = Column(String)
-    destino = Column(String)
+    destado = Column(String)
     dciudad = Column(String)
     dzipcode = Column(Integer)
     idgrupo = Column(Integer)
