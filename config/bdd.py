@@ -2,8 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm.session import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-database_url = "mysql+pymysql://root:admin123@localhost/kdb"
-engine = create_engine(database_url, echo=True)
+bdd_url = "mysql+pymysql://kohana:Kinteki#69@localhost/kdb"
+engine = create_engine(bdd_url, echo=True)
 
 Session = sessionmaker(bind=engine)
 
