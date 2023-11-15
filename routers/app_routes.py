@@ -3,10 +3,10 @@ from fastapi import Path, Query, Depends
 from fastapi.responses import JSONResponse
 from typing import List
 from fastapi.encoders import jsonable_encoder
-from config.db import Session
-from models.reg_guia import RegGuia as RegModel
-from services.reg_guia import RegService
-from schemas.reg_guia import RegGuia
+from config.bdd import Session
+from models.bdd_tables import RegGuia as RegModel
+from services.app_service import RegService
+from schemas.app_schema import RegGuia, RegGuiaInsert
 
 
 reg_router = APIRouter()
@@ -18,7 +18,7 @@ def get_reg_guia() -> List[RegGuia]:
     return JSONResponse(status_code=200, content=jsonable_encoder(result))
 
 @reg_router.post('/reg', tags=['records'], response_model=dict, status_code=201)
-def create_reg(reg: RegGuia) -> dict:
+def create_reg(reg: RegGuiaInsert) -> dict:
     db = Session()
     RegService(db).create_reg(reg)
     return JSONResponse(status_code=201, content={"message": "Se ha hecho el registro."})
