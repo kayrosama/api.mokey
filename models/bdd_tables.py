@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float
-from config.db import Base
+from config.bdd import Base
 
 class RegGuia(Base):
     __tablename__ = "reg_guia"

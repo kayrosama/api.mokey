@@ -1,5 +1,5 @@
-from models.reg_guia import RegGuia as RegModel
-from schemas.reg_guia import RegGuia
+from models.bdd_tables import RegGuia as RegModel
+from schemas.app_schema import RegGuia
 
 class RegService():
     def __init__(self, db) -> None:

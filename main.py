@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-from config.db import engine, Base
-from routers.reg_guia import reg_router
+from config.bdd import engine, Base
+from routers.app_routes import reg_router
 
 app = FastAPI()
 app.title = "api.mokey" #Nombre de la aplicacion.
