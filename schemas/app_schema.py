@@ -42,12 +42,10 @@ class RegGuiaAdd(BaseModel):
 class RegGuiaGetGuia(BaseModel):
     guia: int
     
-
 class RegGuiaGetEnvia(BaseModel):
     snombres: str
     sapeuno: str
     spais: int
-
 
 class RegGuiaGetRecibe(BaseModel):
     dnombres: str

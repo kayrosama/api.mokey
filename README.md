@@ -45,7 +45,6 @@ CREATE TABLE `reg_guia` (
   `stbox` tinyint(4) NOT NULL DEFAULT 0,
   `idgui` bigint(20) NOT NULL DEFAULT uuid_short(),
   `idemp` bigint(20) NOT NULL,
-  `emp_razon` varchar(100) DEFAULT NULL,
   `fecguia` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `guia` int(11) NOT NULL,
   `snombres` varchar(50) NOT NULL,
