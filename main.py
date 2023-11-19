@@ -4,7 +4,7 @@ from config.bdd import engine, Base
 from routers.app_routes import reg_router
 
 app = FastAPI()
-app.title = "api.mokey" #Nombre de la aplicacion.
+app.title = "ksmflypkg" #Nombre de la aplicacion.
 app.version = "0.0.1" #Version de la aplicacion.
 
 app.include_router(reg_router)
