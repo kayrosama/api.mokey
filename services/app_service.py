@@ -1,5 +1,5 @@
 from models.bdd_tables import RegGuia as RegModel
-from schemas.app_schema import RegGuia
+from schemas.app_schema import RegGuiaAdd
 
 class RegService():
     def __init__(self, db) -> None:
@@ -13,13 +13,13 @@ class RegService():
         result = self.db.query(RegModel).filter(RegModel.idreg == id).first()
         return result
     
-    def create_reg(self, reg: RegGuia):
+    def add_reg(self, reg: RegGuiaAdd):
         new_reg = RegModel(**reg.dict())
         self.db.add(new_reg)
         self.db.commit()
         return
     
-    def delete_reg(self, id):
+    def del_reg(self, id):
         result = self.db.query(RegModel).filter(RegModel.idreg == id).first()
         self.db.delete(result)
         self.db.commit()

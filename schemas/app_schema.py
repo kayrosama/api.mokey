@@ -1,17 +1,16 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
-class RegGuia(BaseModel):
+class RegGuiaAdd(BaseModel):
     idreg: Optional[int] = Field(default=None, ge=0)
     fecreg: Optional[str] = Field(default=None)
     fecmod: Optional[str] = Field(default=None)
-    streg: int
-    stsrc: int
-    stpkg: int
-    stbox: int
+    streg: Optional[int] = Field(default=None)
+    stsrc: Optional[int] = Field(default=None)
+    stpkg: Optional[int] = Field(default=None)
+    stbox: Optional[int] = Field(default=None)
     idgui: int
     idemp: int
-    emp_razon: Optional[str] = Field(default=None)
     fecguia: str
     guia: int
     snombres: str
@@ -30,51 +29,27 @@ class RegGuia(BaseModel):
     dteldos: Optional[int] = Field(default=None)
     ddiruno: Optional[str] = Field(default=None)
     ddirdos: Optional[str] = Field(default=None)
-    destado: Optional[str] = Field(default=None)
-    dciudad: Optional[str] = Field(default=None)
+    destado: str
+    dciudad: str
     dzipcode: Optional[int] = Field(default=None)
-    idgrupo: Optional[int] = Field(default=None)
-    idregion: Optional[int] = Field(default=None)
+    idgrupo: int
+    idregion: int
     monto: float
     peso: float
     productos: Optional[str] = Field(default=None)
     observaciones: Optional[str] = Field(default=None)
 
-class RegGuiaInsert(BaseModel):
-    idreg: Optional[int] = Field(default=None)
-    fecreg: Optional[str] = Field(default=None)
-    fecmod: Optional[str] = Field(default=None)
-    streg: int
-    stsrc: int
-    stpkg: int
-    stbox: int
-    idgui: int
-    idemp: int
-    emp_razon: Optional[str] = Field(default=None)
-    fecguia: str
+class RegGuiaGetGuia(BaseModel):
     guia: int
+    
+
+class RegGuiaGetEnvia(BaseModel):
     snombres: str
     sapeuno: str
-    sapedos: Optional[str] = Field(default=None)
-    sapetres: Optional[str] = Field(default=None)
     spais: int
-    steluno: int
-    steldos: Optional[int] = Field(default=None)
+
+
+class RegGuiaGetRecibe(BaseModel):
     dnombres: str
     dapeuno: str
-    dapedos: Optional[str] = Field(default=None)
-    dapetres: Optional[str] = Field(default=None)
     dpais: int
-    dteluno: int
-    dteldos: Optional[int] = Field(default=None)
-    ddiruno: Optional[str] = Field(default=None)
-    ddirdos: Optional[str] = Field(default=None)
-    destado: Optional[str] = Field(default=None)
-    dciudad: Optional[str] = Field(default=None)
-    dzipcode: Optional[int] = Field(default=None)
-    idgrupo: Optional[int] = Field(default=None)
-    idregion: Optional[int] = Field(default=None)
-    monto: float
-    peso: float
-    productos: Optional[str] = Field(default=None)
-    observaciones: Optional[str] = Field(default=None)

@@ -13,7 +13,6 @@ class RegGuia(Base):
     stbox = Column(Integer)
     idgui = Column(Integer)
     idemp = Column(Integer)
-    emp_razon = Column(String)
     fecguia = Column(String)
     guia = Column(Integer)
     snombres = Column(String)
