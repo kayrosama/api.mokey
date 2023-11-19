@@ -11,7 +11,7 @@ class RegGuia(Base):
     stsrc = Column(Integer)
     stpkg = Column(Integer)
     stbox = Column(Integer)
-    idguia = Column(Integer)
+    idgui = Column(Integer)
     idemp = Column(Integer)
     emp_razon = Column(String)
     fecguia = Column(String)
