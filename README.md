@@ -76,4 +76,44 @@ CREATE TABLE `reg_guia` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 #---------#---------#---------#---------#---------#---------#---------#---------#
+POST - Request body - Example 
 
+{
+  "idgui": 100587076168187920,
+  "streg": 1,
+  "stsrc": 2,
+  "stpkg": 1,
+  "stbox": 0,
+  "idemp": 100431219237322773,
+  "fecguia": "2023-11-02 00:00:00",
+  "guia": 1314,
+  "snombres": "Jorge",
+  "sapeuno": "Nitales",
+  "sapedos": "",
+  "sapetres": "",
+  "spais": 502,
+  "steluno": 55443322,
+  "steldos": 0,
+  "dnombres": "Elver",
+  "dapeuno": "Gachica",
+  "dapedos": "",
+  "dapetres": "",
+  "dpais": 1,
+  "dteluno": 2132142151,
+  "dteldos": 0,
+  "ddiruno": "",
+  "ddirdos": "",
+  "destado": "California",
+  "dciudad": "Los Angeles",
+  "dzipcode": 0,
+  "idgrupo": 1,
+  "idregion": 1,
+  "monto": 50,
+  "peso": 5,
+  "productos": "pan|cafe|tortilla|refajo|dulces",
+  "observaciones": "credito"
+}
+
+#---------#---------#---------#---------#---------#---------#---------#---------#
+
+#---------#---------#---------#---------#---------#---------#---------#---------#
