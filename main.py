@@ -12,5 +12,5 @@ app.include_router(reg_router)
 Base.metadata.create_all(bind=engine)
 
 @app.get('/', tags=['home'])
-def message():
+async def message():
     return HTMLResponse('<h1>WTF!</h1')

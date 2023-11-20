@@ -12,40 +12,21 @@ reg_router = APIRouter()
 
 @reg_router.get('/reg', tags=['records'], response_model=List[RegGuiaGetGuia], status_code=200)
 def get_reg_guia() -> List[RegGuiaGetGuia]:
-    
-    try:
-        db = Session()
-        yield db
-        result = RegService(db).get_reg_guia()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
-        
+    db = Session()
+    result = RegService(db).get_reg_guia()
     return JSONResponse(status_code=200, content=jsonable_encoder(result))
 
 @reg_router.post('/reg', tags=['records'], response_model=dict, status_code=201)
 def add_reg(reg: RegGuiaAdd) -> dict:
-    try:
-        db = Session()
-        yield db
-        RegService(db).add_reg(reg)
-        db.commit()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
-
+    db = Session()
+    RegService(db).add_reg(reg)
     return JSONResponse(status_code=201, content={"message": "Se ha hecho el registro."})
 
 @reg_router.delete('/reg/{id}', tags=['records'], response_model=dict, status_code=200)
-def del_reg(id: int) -> dict:
+async def del_reg(id: int) -> dict:
     db = Session()
     result = RegService(db).get_reg(id)
     if not result:
         return JSONResponse(status_code=404, content={"message": "No encontrado"})
     RegService(db).del_reg(id)
-    db.commit()
     return JSONResponse(status_code=200, content={"message": "Se ha eliminado el registro."})
