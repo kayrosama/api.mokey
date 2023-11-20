@@ -6,12 +6,12 @@ from fastapi.encoders import jsonable_encoder
 from config.bdd import Session
 from models.bdd_tables import RegGuia as RegModel
 from services.app_service import RegService
-from schemas.app_schema import RegGuiaAdd, RegGuiaGetGuia
+from schemas.app_schema import RegGuiaAdd, RegGuiaFunctVal
 
 reg_router = APIRouter()
 
-@reg_router.get('/reg', tags=['records'], response_model=List[RegGuiaGetGuia], status_code=200)
-def get_reg_guia() -> List[RegGuiaGetGuia]:
+@reg_router.get('/reg', tags=['records'], response_model=List[RegGuiaFunctVal], status_code=200)
+def get_reg_guia() -> List[RegGuiaFunctVal]:
     db = Session()
     result = RegService(db).get_reg_guia()
     return JSONResponse(status_code=200, content=jsonable_encoder(result))

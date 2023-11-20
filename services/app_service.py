@@ -1,10 +1,10 @@
 from models.bdd_tables import RegGuia as RegModel
 from schemas.app_schema import RegGuiaAdd
-
+        
 class RegService():
     def __init__(self, db) -> None:
         self.db = db
-        
+    
     def get_reg_guia(self):
         result = self.db.query(RegModel).all()
         return result

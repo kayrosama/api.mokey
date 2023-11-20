@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Optional
+from models.bdd_tables import RegGuia as RegModel
 
 class RegGuiaAdd(BaseModel):
     idreg: Optional[int] = Field(default=None, ge=0)
@@ -39,15 +40,30 @@ class RegGuiaAdd(BaseModel):
     productos: Optional[str] = Field(default=None)
     observaciones: Optional[str] = Field(default=None)
 
-class RegGuiaGetGuia(BaseModel):
+class RegGuiaFunctVal(BaseModel):
     guia: int
-    
-class RegGuiaGetEnvia(BaseModel):
     snombres: str
     sapeuno: str
-    spais: int
-
-class RegGuiaGetRecibe(BaseModel):
+    steluno: int
     dnombres: str
     dapeuno: str
-    dpais: int
+    dteluno: int
+
+    def __init__(self, db) -> None:
+        self.db = db
+    
+    def functval_id(self, id):
+        result = self.db.query(RegModel).filter(RegModel.idreg == id).first()
+        return result
+       
+    def functval_src(self, snombres: str, sapeuno: str, steluno: int):
+        vcli_src = self.db.query(RegModel).filter(RegModel.steluno == int(steluno), 
+                                                RegModel.snombres == str(snombres).upper().strip(), 
+                                                RegModel.sapeuno == str(sapeuno).upper().strip()).first()
+        return vcli_src
+    
+    def functval_dst(self, dnombres: str, dapeuno: str, dteluno: int):
+        vcli_dst = self.db.query(RegModel).filter(RegModel.dteluno == int(dteluno), 
+                                                RegModel.dnombres == str(dnombres).upper().strip(), 
+                                                RegModel.dapeuno == str(dapeuno).upper().strip()).first()
+        return vcli_dst
